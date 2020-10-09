@@ -1,20 +1,25 @@
-#Hola Mundo en Python
+# Hola Mundo en Python
 
 print('Hola Mundo')
 
-palabra= 'Hola Mundo'
+palabra = 'Hola Mundo'
 print(palabra)
 
+# Devuelve el tipo de dato la vairble --palabra--
+print("\nDevuelve el tipo de dato la variable 'palabra'")
 print(type(palabra))
 
-a=5
-b=10
+# Suma de dos numeros
+a = 5
+b = 10
+
+print(f"\nSuma de {a} + {b}")
 print(a+b)
 
 
-print('\n--Tabla de Multiplicar del 0 al 10--')
-x=11
+print('\nTabla de Multiplicar del 0 al 10')
+x = 11
 for i in range(x):
     print('\n')
     for j in range(x): 
-        print i,'*',j,'= ',i*j
+        print(f"{i} * {j} = {i*j}")

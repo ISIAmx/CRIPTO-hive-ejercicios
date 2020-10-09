@@ -1,0 +1,102 @@
+body {
+  background: #df40ae;
+}
+
+/*Estilos de Clase Secciones*/
+.Secciones {
+  overflow: hidden;
+  /*border: 1px solid #ffffff;*/
+  background-color: #008cff;
+}
+
+/*Estilos a botones de secciones*/
+.Secciones button {
+  background-color: #770a5e;
+  color: #ffffff;
+  font-weight: bold;
+  float: left;
+  /*Se pega a la izquierda*/
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #ff0000;
+  /*outline: 2px solid black;/*Se rodea (despues del border) de color blanco*/
+  cursor: pointer;
+  padding: 20px;
+  /*Espacio de 20px en el boton en las 4 partes*/
+  transition: 0.3s;
+}
+
+/*Cambia color del boton al pasar el mouse sobre el*/
+.Secciones button:hover {
+  background-color: #ff0000;
+}
+
+/*Estilos de contendores de informacion de cada boton*/
+.contenedorInfo {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  border-top: none;
+}
+
+h3{
+  color: #ffffff;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+/*Estilos para el area de texto que recibe la tabla generada*/
+textarea {
+  text-align: center;
+  margin: 10px auto;
+  height: 350px;
+  display: block;
+  color: #ffffff;
+  background-color: #0096b1;
+  font-size: 20px;
+  font-family: sans-serif;
+  border-color: #fffff;
+  border-style: dashed;
+}
+
+.contenedor {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/*Estilos de boton verificar*/
+#Palindromas button {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-style: solid;
+  font-size: 20px;
+  font-family: sans-serif;
+  border-radius: 10px;
+}
+
+/*Estilos para el resultado el parrafo que
+contiene el mensaje de palindroma o no*/
+p {
+  text-align: center;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 10px;
+  width: 20%;
+  margin: 20px auto;
+  padding: 10px;
+  font-family: sans-serif;
+  display: block;
+}
+
+/*Estilos para la seccion de tablas*/
+#Tabla button {
+  background-color: #000000;
+  color: #ffffff;
+  border-style: solid;
+  font-size: 20px;
+  font-family: sans-serif;
+  border-radius: 20px;
+  margin: auto;
+  display: block;
+}
