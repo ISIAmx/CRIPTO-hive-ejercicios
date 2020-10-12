@@ -1,0 +1,3 @@
+Hola a todos
+¡¡¡Esto es manejo básico de archivos
+con Python!!! :) 

@@ -1,0 +1,46 @@
+body{
+    background-color: rgba(73, 100, 255, 0.795);
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.contenedor{
+    background-color: rgb(136, 0, 91);
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    
+}
+
+#botones{
+    margin: 20px auto;
+}
+
+#numero1,#numero2{
+    margin: 20px auto;
+    display: block;
+    width: 20%;
+}
+
+.boton{
+    background-color: yellow;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    border-color: rgb(0, 110, 255);
+    
+}
+
+p{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    width: 30%;
+    margin: auto;
+}

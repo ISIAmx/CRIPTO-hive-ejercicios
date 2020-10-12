@@ -7,31 +7,31 @@ Repositorio para ejercicios para autocapacitación
 ```
 
 ### Hello World in Python
-If you want to run this code you have to follow the next path
+To run this code, typing the command
 ```
 $ cd Hola-Mundo
 ```
-And then, typing the next command
+And 
 ```
 $ python3 hola-mundo.py
 ```
 
 ### Hello World in HTML and CSS
-Following this path
+From the folder
 ```
 $ cd Hola-Mundo/html-css
 ```
-And then
+And typing the command
 ```
 $ firefox index.html
 ```
 
 ### Hello World in HTML, CSS and JS
-Following this path
+From the folder
 ```
 $ cd Hola-Mundo/html-css-js
 ```
-And then
+Typing the command
 ```
 $ firefox index.html
 ```
@@ -48,12 +48,12 @@ $ cd ciclos
 ```
 You'll find the next .py files
 1. It's called *numeros*
-  To run this, typing the next command
+  To run this, typing the command
   ```
   $ python3 numeros.py
   ```
 2. It's called *palabra_palindroma*
-  To run this, typing the next command
+  To run this, typing the command
   ```
   $ python3 palabra_palindroma.py
   ```
@@ -71,3 +71,39 @@ And then
 ```
 $ firefox index.html
 ```
+
+### Comparison in Python
+From the folder
+```
+$ cd comparadores
+```
+Typing the command
+```
+$ python3 comparadores.py
+```
+### Comparisons with JS, HTML and CSS
+From the folder
+```
+$ cd comparadores
+```
+Typing the command
+```
+$ cd html-css-js/
+```
+and
+```
+$ firefox index.html
+```
+
+### External Files in Python
+From the folder
+```
+$ cd archivos
+```
+$ python3 archivos.py
+```
+$ cd archivos
+```
+
+
+
