@@ -100,9 +100,9 @@ From the folder
 ```
 $ cd archivos
 ```
-$ python3 archivos.py
+Typing the command
 ```
-$ cd archivos
+$ python3 archivos.py
 ```
 
 
