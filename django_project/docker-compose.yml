@@ -1,0 +1,20 @@
+#Version del archivo
+version: "3.8"
+
+#Servicios que se ejecutaran
+services:
+ 
+ web:
+ #Construccion del contenedor con Dockerfile del directorio actual
+  build: .
+ #Se ejecuta al finalizar la creacion del contenedor
+  command: python manage.py runserver 0.0.0.0:8000
+ 
+ #Mapeo de archivos externos -> internos para reflejar cambios fuera de cont..
+  volumes:
+   - .:/code
+   - .db_data/db.sqlite3:/db.sqlite3
+  #Mapeo de puertos host-> puertos contenedor 
+  ports:
+  - 8000:8000
+
