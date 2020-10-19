@@ -1,21 +1,35 @@
 # Django
 This project was made with
 
-* docker version 19.03.13
-* docker-compose version 1.27.4
-* python 3.8.6
+* pipenv version 2020.8.13
+* django version 3.1.2
+* python version  3.8
 
 ## Hello World with Django
 To run this code, from the main folder
 ```
 CRIPTO-hive-ejercicios/
 ```
+Following the directory
+```
+$ cd django_project_pipenv/
+```
 Typing
 ```
-$ cd django_project/
+$ pipenv shell
+```
+To install the requirements
+```
+$ pipenv install
+```
+Following the directory
+```
+$ cd test_project/
 ```
 And
 ```
-$ sudo docker-compose up
+$ python manage.py runserver/
 ```
-Finally, open the link http://0.0.0.0:8000/saludo
+
+To see the results, Open the link http://0.0.0.0:8000
+or http://0.0.0.0:8000/palindroma
