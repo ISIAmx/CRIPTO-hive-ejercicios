@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenido a mi primera página web con Flask</h1>
+        <h2>Que tal! :)</h2>
+    </header>
+    <form action=" /buscar/" method="GET">
+    <input type="text" name="prd">
+    <input type="submit" id="boton" value="buscar">
+    </form>
+    </body>
+
+</html>

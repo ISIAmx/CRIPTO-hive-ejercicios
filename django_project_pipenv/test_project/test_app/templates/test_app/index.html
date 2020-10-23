@@ -13,11 +13,10 @@
         <h1>Bienvenido a mi primera página web con Django</h1>
         <h2>Que tal! :)</h2>
     </header>
-    <footer>
-        <p class="Boton"> Facebook</p>
-        <p class="Boton">Email</p>
-        <p class="Boton">Teléfono</p>
-    </footer>
+    <form action="/buscar/" method="GET">
+        <input type="text" name="prd">
+        <input type="submit" id="boton" value="buscar">
+    </form>
 </body>
 
 </html>

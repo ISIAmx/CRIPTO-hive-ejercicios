@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ciclos con HTML y JS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ciclos_styles.css') }}">
+</head>
+
+<body>
+  <!-- Botones de seleccion de seccion-->
+  <div class="Secciones">
+    <button class="botonSeccion" onclick="abrirSeccion(event, 'Palindromas')">Palíndromas</button>
+    <button class="botonSeccion" onclick="abrirSeccion(event, 'Tabla')">Tabla de Multiplicar</button>
+  </div>
+
+  <!-- Contenido de cada seccion -->
+  <div id="Palindromas" class="contenedorInfo">
+    <h3>Palabras Palíndromas</h3>
+    <div class="contenedor">
+      <!---Recibe la palabra del usuaurio--->
+      <input id="palabra" type="text" placeholder="Escriba una palabra">
+      <button onclick="palabraPalindroma()">Verificar</button>
+      <!---Contenedor de resultado--->
+      <p id="resultado"></p>
+    </div>
+  </div>
+
+  <div id="Tabla" class="contenedorInfo">
+    <h3>Tabla de Multiplicar</h3>
+    <!--Boton para generar la tabla-->
+    <button onclick="generarTabla()">Generar</button>
+    <!--TextArea para resultado-->
+    <textarea id="resultadoTabla"></textarea>
+  </div>
+  <script src="{{ url_for('static', filename='js/ciclos_scripts.js') }}"></script>
+</body>
+
+</html>
