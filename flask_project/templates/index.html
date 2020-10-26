@@ -4,18 +4,20 @@
 <head>
     <meta charset="utf-8">
     <title>Pagina Principal</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
+    <script src="{{ url_for('static', filename='js/operacion.js') }}"></script>
 
+</head>
 <body>
-    <header>
-        <h1>Bienvenido a mi primera página web con Flask</h1>
-        <h2>Que tal! :)</h2>
-    </header>
-    <form action=" /buscar/" method="GET">
-    <input type="text" name="prd">
-    <input type="submit" id="boton" value="buscar">
-    </form>
-    </body>
+    <div>
+        <form class="Datos">
+            <input type="text" id="num1" name='num1' class="Informacion" placeholder="Ingrese num1">
+            <input type="text" id="num2" name='num2' class="Informacion" placeholder="Ingrese num2">
+            <button type="button">Sumar</button>
+        </form>
+        <p id= "resultado" title="Resultado">Resultado</p>
+    </div>
+</body>
 
 </html>

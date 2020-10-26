@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify, json
 
 app = Flask(__name__)
 
@@ -7,11 +7,14 @@ app = Flask(__name__)
 def hola_mundo():
     return render_template("index.html")
 
+@app.route('/index', methods=['POST'])
+def operacion():
 
-@app.route('/ciclos')
-def ciclos():
-    return render_template("ciclos_index.html")
+    num1 = request.form['num1']
+    print(type(num1))
+    num2 = request.form['num2']
+    print(type(num2))
+    suma = int(num1)+int(num2)
+    print(f"La suma es: {suma}")
 
-@app.route('/buscar/')
-def buscar():
-    return render_template("buscar.html")
+    return json.dumps({'resultado': suma}) # Devuleve Json
