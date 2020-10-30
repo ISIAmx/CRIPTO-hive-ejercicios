@@ -24,12 +24,11 @@ $ pipenv install
 ```
 Typing
 ```
-$ export FLASK_APP=test.py
+$ export FLASK_APP=app.py
 ```
 And
 ```
 $ flask run
 ```
 
-To see the results, Open the link http://127.0.0.1:5000/
-or http://127.0.0.1:5000/ciclos
+Open the link http://127.0.0.1:5000/

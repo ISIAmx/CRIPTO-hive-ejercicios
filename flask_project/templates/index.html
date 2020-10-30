@@ -6,17 +6,28 @@
     <title>Pagina Principal</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="{{ url_for('static', filename='js/operacion.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </head>
+
 <body>
     <div>
-        <form class="Datos">
-            <input type="text" id="num1" name='num1' class="Informacion" placeholder="Ingrese num1">
-            <input type="text" id="num2" name='num2' class="Informacion" placeholder="Ingrese num2">
-            <button type="button">Sumar</button>
+        <h2>Registrar Usuario</h2>
+        <div>
+            <form class="Datos">
+                <input type="text" id="nombre" name='nombre' class="Informacion" placeholder="Nombre">
+                <input type="text" id="apellido" name='apellido' class="Informacion" placeholder="Apellido">
+                <input type="text" id="correo" name='correo' class="Informacion" placeholder="Correo">
+                <input type="text" id="tel" name='tel' class="Informacion" placeholder="Teléfono">
+
+            </form>
+            <button type="button" id="registrar" class="boton">Registrar</button>
+        </div>
+        <p id="resultado" title="Resultado">Status</p>
+
+        <form action="/users" id="usuarios">
+            <button type="submit" >Ver Usuarios</button> 
         </form>
-        <p id= "resultado" title="Resultado">Resultado</p>
     </div>
 </body>
 

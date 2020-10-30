@@ -1,16 +1,27 @@
 body{
-    background-color: #00d9ff
+    background-color: #e260a3;
   }
   
   h1,h2{
     text-align: center;
-    color: #ffffff;
+    color: #000000;
     font-family: sans-serif;
     font-weight: bolder;
   }
   
 
-  #boton{
+.Datos{
+  width: 40%;
+  margin:auto;
+  text-align: center;
+  display: block;
+}
+
+.Informacion{
+  margin:10px;
+}
+
+.boton{
     background-color:#6c103f;
     color: #ffffff;
     border:2px solid;
@@ -18,6 +29,20 @@ body{
     border-radius: 20px;
     text-align:center;
     font-family: sans-serif;
-    margin: 10px auto 10px auto;
-  }
-  
+    width: 20%;
+    margin: auto;
+    display: block;
+}
+
+#resultado{
+  width: 20%;
+  margin: auto;
+  display: block;
+}
+
+#usuarios{
+  text-align:center;
+  width:20%;
+  margin:auto;
+  padding-top: 20px;
+}

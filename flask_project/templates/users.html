@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Cliente-Servidor</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios.css') }}">
+    <script src="{{ url_for('static', filename='js/ver_usuarios.js') }}"></script>
+</head>
+
+<body>
+    <div>
+        <h2>Ver Usuarios Registrados</h2>
+        <button type="button"  id="visualizar" class="boton">Ver Usuarios</button>
+        <p id="lista_usuarios"></p>
+    </div>
+</body>
+
+</html>
