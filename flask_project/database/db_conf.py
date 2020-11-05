@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 
+
 def conexion_db(db_file):
     # Crea conexion a db recibida por parametro
     conn = None
@@ -35,3 +36,29 @@ def consultarUsuario(conn):
     ]
     if usuarios is not None:
         return usuarios
+
+
+def consultarDato(conn, opcion, dato):
+    cur = conn.cursor()
+
+    # Obtiene usario por la opcion recibida (nombre, apellido, correo)
+    query = f"SELECT * FROM usuario WHERE {opcion} = ?;"
+
+    cur.execute(query, (dato,))
+
+    usuarios = [
+        dict(id=row[0], nombre=row[1], apellido=row[2],
+             correo=row[3], tel=row[4])
+        for row in cur.fetchall()
+    ]
+
+    if usuarios is not None:
+        return usuarios
+
+
+def eliminarUsuario(conn, id_borrar):
+    # Elimina usuario con id recibido por parametro
+    query = " DELETE FROM usuario WHERE id = ?;"
+    cur = conn.cursor()
+    cur.execute(query, (id_borrar,))
+    conn.commit()

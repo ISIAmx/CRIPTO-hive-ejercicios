@@ -9,7 +9,7 @@ $(function () {
             data: JSON.stringify({ click: "true" }),
             success: function (data) {
                 data = JSON.stringify(data);//Convierte lista json en string json
-                data = $.parseJSON(data);//Convierte stringjson en objetos js
+                data = $.parseJSON(data);//Convierte string json en objetos js
 
                 $("#lista_usuarios").append("<table><tr><th>Nombre</th><th>Apellido</th><th>Correo</th><th>Telefono</th></tr>");
                 $(data).each(function (index, data) {

@@ -19,3 +19,10 @@ div,#lista_usuarios{
     margin: auto;
     display: block;
 }
+
+.nav{
+    width: 20%;
+    margin:auto;
+    padding-top: 100px;
+    text-align: center;
+}

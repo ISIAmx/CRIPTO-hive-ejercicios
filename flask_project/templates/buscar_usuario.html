@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar_Usuario</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buscar_usuario.css') }}">
+    <script src="{{ url_for('static', filename='js/buscar_usuario.js') }}"></script>
+</head>
+
+<body>
+    <h1>Buscar Usuario</h1>
+    <!-----------Botones para activar botones segun la opcion de busqueda-->
+    <button onclick="opciones(event,1)">Por nombre</button>
+    <button onclick="opciones(event,2)">Por apellido</button>
+    <button onclick="opciones(event,3)">Por correo</button>
+
+    <!-----------Campo y boton para buscar por nombre-->
+    <div class="seccion" id="1">
+        <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nom">
+        <button id="btn1">Buscar</button>
+    </div>
+    <!-----------Campo y boton para buscar por apellido-->
+    <div class="seccion" id="2">
+        <input type="text" placeholder="Ingrese Apellido" name="apellido" id="ape">
+        <button id="btn2">Buscar</button>
+    </div>
+    <!-----------Campo y boton para buscar por correo-->
+    <div class="seccion" id="3">
+        <input type="text" placeholder="Ingrese correo" name="correo" id="cor">
+        <button id="btn3">Buscar</button>
+    </div>
+
+    <!-----------Resultado de busqueda-->
+    <div>
+        <h3>Resultado</h3>
+        <p id="resultado">------</p>
+    </div>
+
+    <!-----------Botones para Modificar y Borrar usuario buscado-->
+    <div id="btn-opciones">
+        <button onclick="activar_contenedor(event,'cont')">Modificar</button>
+        <button id="borrar-usuario">Eliminar</button>
+    </div>
+
+
+   <!-----------campos para los datos de usuario a modificar-->
+    <div class="contenedor" id='cont'>
+        <input type="text" id="cont-nombre">
+        <input type="text" id="cont-apellido">
+        <input type="text" id="cont-correo">
+        <input type="text" id="cont-telefono">
+    </div>
+
+    <!--Botones para navegar entre archivos html-->
+    <div  class="nav">
+        <form action="/users" >
+            <button type="submit">Ver Usuarios</button>
+        </form>
+
+        <form action="/">
+            <button type="submit">Registrar Usuarios</button>
+        </form>
+    </div>
+</body>
+
+</html>

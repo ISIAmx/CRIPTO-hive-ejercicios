@@ -20,6 +20,11 @@ def users():
     return render_template("users.html")
 
 
+@app.route('/buscar_usuario')
+def buscar_usuario():
+    return render_template("buscar_usuario.html")
+
+
 @app.route('/index', methods=['POST'])
 def operacion():
     json_data = request.get_json()
@@ -42,11 +47,45 @@ def ver_usuarios():
     json_data = request.get_json()
 
     btn = json_data['click']
-  
+
     if btn == 'true':
         with conn:
             users = consultarUsuario(conn)
             return (jsonify(users), 200)  # Devuleve Json
+
+
+@app.route('/buscar_usuario', methods=['POST'])
+def buscar_usuarios():
+    opcion = ""
+    json_data = request.get_json()
+    if json_data['op'] == "1":
+        opcion = "nombre"
+        dato = json_data['nom']
+    elif json_data['op'] == "2":
+        opcion = "apellido"
+        dato = json_data['ape']
+    elif json_data['op'] == "3":
+        opcion = "correo"
+        dato = json_data['cor']
+
+    print(opcion)
+    print(dato)
+    with conn:
+        users = consultarDato(conn, opcion, dato)
+        print(users)
+        return (jsonify(users), 200)  # Devuleve Json
+
+
+@app.route('/borrar_usuario', methods=['POST'])
+def borrar_usuarios():
+
+    json_data = request.get_json()
+    id_borrar = json_data["id"]
+
+    with conn:
+        eliminarUsuario(conn, id_borrar)
+        status = "Usuario Eliminado de Base de Datos"
+        return json.dumps({'status': status})  # Devuleve Json
 
 
 if __name__ == '__main__':
