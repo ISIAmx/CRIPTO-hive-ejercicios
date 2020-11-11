@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/buscar_usuario.css') }}">
     <script src="{{ url_for('static', filename='js/buscar_usuario.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modificar_usuario.js') }}"></script>
 </head>
 
 <body>
@@ -48,10 +49,11 @@
 
    <!-----------campos para los datos de usuario a modificar-->
     <div class="contenedor" id='cont'>
-        <input type="text" id="cont-nombre">
-        <input type="text" id="cont-apellido">
-        <input type="text" id="cont-correo">
-        <input type="text" id="cont-telefono">
+        <input type="text" id="mod-nombre">
+        <input type="text" id="mod-apellido">
+        <input type="text" id="mod-correo">
+        <input type="text" id="mod-telefono">
+        <button id="btn-modificar">Guardar Cambios</button>
     </div>
 
     <!--Botones para navegar entre archivos html-->

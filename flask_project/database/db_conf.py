@@ -62,3 +62,12 @@ def eliminarUsuario(conn, id_borrar):
     cur = conn.cursor()
     cur.execute(query, (id_borrar,))
     conn.commit()
+
+
+def modificarUsuario(conn, usr):
+    # Modifica nuevo usuario
+    query = f''' UPDATE usuario SET nombre = ?, apellido = ?, correo=?, tel=?
+    WHERE id=?;'''
+    cur = conn.cursor()
+    cur.execute(query, usr)
+    conn.commit()

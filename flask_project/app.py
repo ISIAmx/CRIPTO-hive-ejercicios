@@ -88,5 +88,24 @@ def borrar_usuarios():
         return json.dumps({'status': status})  # Devuleve Json
 
 
+@app.route('/modificar_usuario', methods=['POST'])
+def modificar_usuarios():
+    
+    json_data = request.get_json()
+
+    id = json_data['id']
+    nom = json_data['nom']
+    apellido = json_data['ape']
+    correo = json_data['cor']
+    tel = json_data['tel']
+
+    with conn:
+        # Modifica Usuario
+        usr = (nom, apellido, correo, tel,id)
+        modificarUsuario(conn, usr)
+        status = 'Modificado con éxito'
+    return json.dumps({'status': status})  # Devuleve Json
+
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,20 +2,24 @@ function opciones(event, id_seccion) {
 
     num_secciones = document.getElementsByClassName("seccion");
     //Oculta campos no seleccionados
-    for (var i = 0; i < num_secciones.length; i++) {
+    for (let i = 0; i < num_secciones.length; i++) {
         num_secciones[i].style.display = "none";
     }
     //Activa campo seleccionado
+
     document.getElementById(id_seccion).style.display = "block";
 }
 
 //Se activa si se selecciona Modificar
 function activar_contenedor(event, cont) {
-    document.getElementById(cont).style.display = "block";
-}
+    let modificar_seccion = document.getElementById(cont).style;
 
-// Variable global para guardar el id del usuario a borrar si fuera necesario
-id_borrar = 0;
+    if (modificar_seccion.display == "block") {
+        modificar_seccion.display = "none";
+    } else {
+        modificar_seccion.display = "block";
+    }
+}
 
 $(function () {
     //Buscar por nombre
@@ -37,11 +41,13 @@ $(function () {
                 //Imprime en los campos los datos del usuario buscado
                 $(data).each(function (index, data) {
                     $("#resultado").text(data.nombre + "--" + data.apellido + "--" + data.correo);
-                    $("#cont-nombre").val(data.nombre);
-                    $("#cont-apellido").val(data.apellido);
-                    $("#cont-correo").val(data.correo);
-                    $("#cont-telefono").val(data.tel);
-                    id_borrar = data.id; //guarda id de usuario obtenido para borrarlo si es necesario
+                    $("#mod-nombre").val(data.nombre);
+                    $("#mod-apellido").val(data.apellido);
+                    $("#mod-correo").val(data.correo);
+                    $("#mod-telefono").val(data.tel);
+                    id_borrar = data.id; //guarda id de usuario obtenido para borrarlo si es necesario                   
+                    localStorage.setItem("var_compartida", id_borrar);
+
                 });
             },
             error: function (error) { //Si se obtiene algun error
@@ -69,11 +75,13 @@ $(function () {
                 //Imprime en los campos los datos del usuario buscado
                 $(data).each(function (index, data) {
                     $("#resultado").text(data.nombre + "--" + data.apellido + "--" + data.correo);
-                    $("#cont-nombre").val(data.nombre);
-                    $("#cont-apellido").val(data.apellido);
-                    $("#cont-correo").val(data.correo);
-                    $("#cont-telefono").val(data.tel);
+                    $("#mod-nombre").val(data.nombre);
+                    $("#mod-apellido").val(data.apellido);
+                    $("#mod-correo").val(data.correo);
+                    $("#mod-telefono").val(data.tel);
                     id_borrar = data.id; //guarda id de usuario obtenido para borrarlo si es necesario
+                    localStorage.setItem("var_compartida", id_borrar);
+
                 });
 
             },
@@ -102,11 +110,13 @@ $(function () {
                 //Imprime en los campos los datos del usuario buscado
                 $(data).each(function (index, data) {
                     $("#resultado").text(data.nombre + "--" + data.apellido + "--" + data.correo);
-                    $("#cont-nombre").val(data.nombre);
-                    $("#cont-apellido").val(data.apellido);
-                    $("#cont-correo").val(data.correo);
-                    $("#cont-telefono").val(data.tel);
-                    id_borrar = data.id; //guarda id de usuario obtenido para borrarlo si es necesario
+                    $("#mod-nombre").val(data.nombre);
+                    $("#mod-apellido").val(data.apellido);
+                    $("#mod-correo").val(data.correo);
+                    $("#mod-telefono").val(data.tel);
+                    id_borrar = data.id; //guarda id de usuario obtenido para borrarlo si es necesario                   
+                    localStorage.setItem("var_compartida", id_borrar);
+
                 });
             },
             error: function (error) { //Si se obtiene algun error
@@ -117,22 +127,28 @@ $(function () {
 
     //Borra usuario de la base de datos
     $('#borrar-usuario').click(function () {
+        let conf = confirm("Está seguro que quiere eliminar a usuario?");
 
-        $.ajax({
-            url: '/borrar_usuario', //URL a la cual se enviará la peticion
-            type: 'POST', //Petiición POST al servidor
-            dataType: "json", //Se esperan datos Json del servidor
-            contentType: "application/json",
-            data: JSON.stringify({
-                id: id_borrar, //Envía id del usuario a borrar
-            }),
-            success: function (data) {
-                alert(data.status) //Muestra mensaje del servidor
-            },
-            error: function (error) { //Si se obtiene algun error
-                console.log(error);
-            }
-        });
+        if (conf == true) {                                  
+            $.ajax({
+                url: '/borrar_usuario', //URL a la cual se enviará la peticion
+                type: 'POST', //Petiición POST al servidor
+                dataType: "json", //Se esperan datos Json del servidor
+                contentType: "application/json",
+                data: JSON.stringify({
+                    id: id_borrar, //Envía id del usuario a borrar
+
+                }),
+                success: function (data) {
+                    alert(data.status) //Muestra mensaje del servidor
+                },
+                error: function (error) { //Si se obtiene algun error
+                    console.log(error);
+                }
+            });
+        }
+
+
     });
 });
 
