@@ -22,7 +22,7 @@ $(function () {
 				}),//Envia datos ne formato json
 
 				success: function (data) {
-					$("#resultado").text(data.status); //Imprime resultado en parrafo con id resultado
+					alert(data.status); //Imprime resultado en parrafo con id resultado
 
 				},
 				error: function (error) { //Si se obtiene algun error

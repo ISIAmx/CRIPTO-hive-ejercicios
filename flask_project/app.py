@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, json, jsonify
 import sqlite3
 from database.db_conf import *
+from secrets import randbelow
 
 
 app = Flask(__name__)
@@ -34,12 +35,47 @@ def operacion():
     correo = json_data['cor']
     tel = json_data['tel']
 
+    registrado = existe_usuario(nom, apellido, correo, tel)
+
+    if registrado == True:
+        status = 'Este usuario ya existe en Base de Datos'
+        return json.dumps({'status': status})  # Devuleve Json
+    else:
+        with conn:
+            # Inserta Usuario
+            id = consultar_id()
+            usr = (id, nom, apellido, correo, tel)
+            insertarUsuario(conn, usr)
+            status = 'Registrado con éxito'
+            return json.dumps({'status': status})  # Devuleve Json
+
+
+def existe_usuario(nom, ape, cor, tel):
     with conn:
-        # Inserta Usuario
-        usr = (nom, apellido, correo, tel)
-        insertarUsuario(conn, usr)
-        status = 'Registrado con éxito'
-    return json.dumps({'status': status})  # Devuleve Json
+        usuarios = consultarUsuario(conn)
+
+        if usuarios == []:
+            return False
+        else:
+            for usr in usuarios:
+
+                if (nom == usr['nombre']) & (ape == usr['apellido']) & (cor == usr['correo']) & (int(tel) == usr['tel']):
+                    return True
+
+            return False
+
+
+def consultar_id():
+    while True:
+        id = randbelow(10000)
+        with conn:
+            usuarios = consultarUsuario(conn)
+            if usuarios == []:
+                return id
+            else:
+                for usr in usuarios:
+                    if id != usr['id']:
+                        return id
 
 
 @app.route('/users', methods=['POST'])
@@ -90,7 +126,7 @@ def borrar_usuarios():
 
 @app.route('/modificar_usuario', methods=['POST'])
 def modificar_usuarios():
-    
+
     json_data = request.get_json()
 
     id = json_data['id']
@@ -101,7 +137,7 @@ def modificar_usuarios():
 
     with conn:
         # Modifica Usuario
-        usr = (nom, apellido, correo, tel,id)
+        usr = (nom, apellido, correo, tel, id)
         modificarUsuario(conn, usr)
         status = 'Modificado con éxito'
     return json.dumps({'status': status})  # Devuleve Json

@@ -6,7 +6,6 @@ function opciones(event, id_seccion) {
         num_secciones[i].style.display = "none";
     }
     //Activa campo seleccionado
-
     document.getElementById(id_seccion).style.display = "block";
 }
 
@@ -129,7 +128,7 @@ $(function () {
     $('#borrar-usuario').click(function () {
         let conf = confirm("Está seguro que quiere eliminar a usuario?");
 
-        if (conf == true) {                                  
+        if (conf == true) {
             $.ajax({
                 url: '/borrar_usuario', //URL a la cual se enviará la peticion
                 type: 'POST', //Petiición POST al servidor

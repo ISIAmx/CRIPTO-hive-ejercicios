@@ -14,9 +14,10 @@ def conexion_db(db_file):
 
 
 def insertarUsuario(conn, usr):
+
     # Inserta nuevo usuario
-    query = f''' INSERT INTO usuario (nombre,apellido,correo,tel)
-              VALUES(?,?,?,?) '''
+    query = f''' INSERT INTO usuario (id,nombre,apellido,correo,tel)
+              VALUES(?,?,?,?,?) '''
     cur = conn.cursor()
     cur.execute(query, usr)
     conn.commit()
@@ -36,6 +37,9 @@ def consultarUsuario(conn):
     ]
     if usuarios is not None:
         return usuarios
+    else:
+        print("Hola")
+        return None
 
 
 def consultarDato(conn, opcion, dato):
